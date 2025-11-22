@@ -5277,15 +5277,17 @@ function updateCart() {
             return;
         }
 
-        let whatsappMsg = "¡Hola! Mi pedido para Michelinos:%0A%0A";
+        // CORRECCIÓN AQUÍ: Usamos \n en lugar de %0A
+        let whatsappMsg = "¡Hola! Mi pedido para Michelinos:\n\n";
         
         cart.forEach((item, index) => {
             const itemTotal = item.price * item.quantity;
             total += itemTotal;
 
-            whatsappMsg += `*${item.quantity}x ${item.name}*%0A` +
-                          `Tamaño: ${item.size} - $${item.price} c/u%0A` +
-                          `Subtotal: $${itemTotal.toFixed(2)}%0A%0A`;
+            // CORRECCIÓN AQUÍ: Usamos \n para los saltos de línea
+            whatsappMsg += `*${item.quantity}x ${item.name}*\n` +
+                           `Tamaño: ${item.size} - $${item.price} c/u\n` +
+                           `Subtotal: $${itemTotal.toFixed(2)}\n\n`;
 
             const itemElement = document.createElement('div');
             itemElement.className = 'cart-item';
@@ -5308,8 +5310,11 @@ function updateCart() {
 
         cartTotalElement.textContent = '$' + total.toFixed(2);
         
-        whatsappMsg += `%0A*TOTAL A PAGAR: $${total.toFixed(2)}*%0A%0A¡Gracias! 🍕`;
-        document.getElementById('checkoutWhatsApp').href = `https://wa.me/593987654321?text=${encodeURIComponent(whatsappMsg)}`;
+        // CORRECCIÓN AQUÍ TAMBIÉN:
+        whatsappMsg += `\n*TOTAL A PAGAR: $${total.toFixed(2)}*\n\n¡Gracias! 🍕`;
+        
+        // Aquí encodeURIComponent transformará los \n en el código correcto automáticamente
+        document.getElementById('checkoutWhatsApp').href = `https://wa.me/593983248585?text=${encodeURIComponent(whatsappMsg)}`;
         
         // Reconectar eventos de eliminar
         document.querySelectorAll('.cart-item-remove').forEach(btn => {
