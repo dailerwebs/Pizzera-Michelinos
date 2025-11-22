@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+     
 
     <style>
         /* Variables y Reset - NUEVO ESQUEMA DE COLORES */
@@ -938,41 +939,38 @@ section#inicio {
             right: 75px;
         }
         
-    .gif-logo-float {
-	position: fixed;
-	bottom: 30px; /* Misma distancia de abajo */
-	left: 30px; /* Esquina opuesta a "right: 30px" */
-	
-	/* WhatsApp mide 60px, este lo ponemos en 50px */
-	width: 140px; 
-	height: 60px;
-	
-	/background-color: var(--black); /* Color de fondo por si el GIF tarda */
-	/border-radius: 50%;
-	overflow: hidden; /* Fuerza al GIF a ser circular 
-	
-	display: flex;
-	align-items: center;*/
-	justify-content: center;
-	
-	/*box-shadow: var(--shadow);*/
-	z-index: 2000; /* Misma altura que el de WhatsApp */
-	transition: var(--transition);
+    /* ========================================= */
+/* LOGO FLOTANTE (Versión Ajustada - 60px) */
+/* ========================================= */
+
+.gif-logo-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    
+    /* Tamaño ajustado al cuadrado exacto */
+    width: 63px; 
+    height: 63px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: var(--transition);
 }
 
 .gif-logo-float img {
-	width: 35%;
-	height: 99%;
-	object-fit: cover; /* Se asegura que el GIF llene el círculo */
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* La imagen llena el espacio sin cortarse */
 }
 
 .gif-logo-float:hover {
-	transform: scale(1.1); /* Efecto al pasar el cursor */
+    transform: scale(1.1);
 }
 
         /* Page Navigation */
 
-        
 
         .page {
             display: none;
@@ -3810,6 +3808,324 @@ nav {
     background: linear-gradient(135deg, #128C7E, #25D366);
 }
 
+/* ========================================= */
+/* TARJETA "NOSOTROS" - VERSIÓN MÓVIL LIMPIA */
+/* ========================================= */
+@media (max-width: 768px) {
+
+    /* 1. Ocultamos la imagen y el texto "AMOR POR LA PIZZA" */
+    .float-card-image {
+        display: none !important;
+    }
+
+    /* 2. Aseguramos que el texto ocupe todo el ancho */
+    .float-card-content {
+        width: 100% !important;
+        flex: auto !important;
+        padding-top: 2rem !important; /* Un poco de aire arriba */
+    }
+
+    /* 3. Creamos la línea Tricolor (Verde, Blanco, Rojo) */
+    .float-card::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 8px; /* Grosor medio (ni muy fina, ni muy gruesa) */
+        
+        /* El truco para la bandera: Degradado con cortes duros */
+        background: linear-gradient(
+            to right, 
+            #009246 0%,   #009246 33%,  /* Verde */
+            #f1f2f6 33%,  #f1f2f6 66%,  /* Blanco (un gris muy clarito para que se note) */
+            #ce2b37 66%,  #ce2b37 100%  /* Rojo */
+        );
+        
+        /* Para que respete el borde redondeado de la tarjeta arriba */
+        border-radius: 4px 4px 0 0; 
+    }
+
+    /* ========================================= */
+/* NUEVO ESTILO: CARRUSEL RESEÑAS (GOOGLE STYLE) */
+/* ========================================= */
+
+/* Contenedor principal de la sección en el inicio */
+.homepage-reviews-section {
+    padding: 5rem 0;
+    background-color: var(--warm-beige); /* Mismo fondo crema */
+}
+
+/* Ajuste para el carrusel */
+.reviews-carousel {
+    padding-bottom: 3rem; /* Espacio para los puntitos de paginación */
+}
+
+/* LA TARJETA ESTILO GOOGLE */
+.google-review-card {
+    background-color: #fff;
+    border-radius: 16px; /* Bordes redondeados modernos */
+    padding: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra suave */
+    height: 100%; /* Para que todas tengan la misma altura */
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #f0f0f0; /* Borde muy sutil */
+    text-align: left; /* Importante: alinear texto a la izquierda */
+}
+
+/* 1. Las Estrellas */
+.review-stars {
+    color: #FFC107; /* Color amarillo/dorado de Google */
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* 2. Info del Usuario (Foto y Nombre) */
+.review-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-profile-pic {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f8f9fa;
+}
+
+.review-user-details h4 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 0;
+    color: var(--black);
+}
+
+.review-user-details span {
+    font-size: 0.85rem;
+    color: #777; /* Gris para la fecha */
+}
+
+/* 3. El Texto de la Reseña */
+.review-body-text {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #333;
+    flex-grow: 1; /* Empuja el botón de Google hacia abajo */
+    margin-bottom: 1.5rem;
+}
+
+/* 4. El Botón "Ver en Google" */
+.google-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #f1f3f4; /* Fondo gris claro característico */
+    color: #3c4043;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 20px; /* Forma de píldora */
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+    align-self: flex-start; /* Que no ocupe todo el ancho */
+}
+
+.google-link-btn:hover {
+    background-color: #e8eaed; /* Un poco más oscuro al pasar el mouse */
+}
+
+.google-icon-img {
+    width: 18px;
+    height: 18px;
+}
+
+/* Paginación del carrusel (los puntitos) */
+.reviews-carousel .swiper-pagination-bullet-active {
+    background-color: var(--gold) !important;
+}
+
+/* El botón grande debajo del carrusel */
+.btn-see-all-reviews {
+    background-color: var(--black);
+    color: var(--white);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: var(--transition);
+    display: inline-block;
+    border: 2px solid var(--black);
+}
+
+.btn-see-all-reviews:hover {
+    background-color: transparent;
+    color: var(--black);
+    transform: translateY(-3px);
+}
+
+}
+
+/* ======================================================= */
+/* ESTILO TARJETAS GOOGLE REVIEWS (DEFINITIVO) */
+/* ======================================================= */
+
+/* Contenedor principal */
+.google-reviews-section {
+    padding: 4rem 0;
+    background-color: var(--warm-beige);
+    overflow: hidden; /* Vital para que no descuadre la PC */
+}
+
+/* Estilo del Carrusel */
+.reviews-carousel-container {
+    width: 100%;
+    padding: 20px 10px 50px 10px; /* Espacio abajo para los puntitos */
+}
+
+/* Altura igual para todas las tarjetas */
+.reviews-carousel-container .swiper-slide {
+    height: auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* LA TARJETA (Diseño Google) */
+.g-card {
+    background: #fff;
+    border-radius: 8px; /* Borde estilo Google */
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s;
+}
+
+.g-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Estrellas */
+.g-stars {
+    color: #fbbc04; /* Amarillo Google exacto */
+    font-size: 14px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+/* Cabecera Usuario */
+.g-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.g-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Para cuando no hay foto, un círculo de color con letra */
+.g-avatar-placeholder {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #7e57c2; /* Color random */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.g-info h4 {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+    color: #202124;
+}
+
+.g-info span {
+    font-size: 12px;
+    color: #70757a; /* Gris Google */
+}
+
+/* Texto de la reseña */
+.g-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #3c4043;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+/* Botón "Ver en Google" (Gris pequeño) */
+.btn-google-small {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    border: 1px solid #dadce0;
+    border-radius: 18px;
+    padding: 5px 12px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    color: #3c4043;
+    align-self: flex-start;
+    transition: background 0.2s;
+}
+
+.btn-google-small:hover {
+    background-color: #f1f3f4;
+}
+
+.g-icon {
+    font-size: 14px;
+}
+
+/* BOTÓN PRINCIPAL ABAJO (Estético, no gigante) */
+.btn-reviews-main {
+    margin-top: 30px;
+    display: inline-block;
+    background-color: var(--black);
+    color: var(--white);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-reviews-main:hover {
+    background-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Paginación Swiper (Puntitos) */
+.swiper-pagination-bullet-active {
+    background-color: var(--primary) !important;
+}
+
     </style>
 </head>
 <body>
@@ -3866,7 +4182,7 @@ nav {
 		
 		<div class="hero-image-content">
 			<div class="hero-main-image">
-				<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80" alt="Interior del restaurante">
+				<img src="https://i.postimg.cc/J7q1wjnm/IMG-20251112-WA0040.jpg" alt="Interior del restaurante">
 			</div>
 			<div class="hero-floating-image-1">
 				<img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&w=200&q=80" alt="Pizza Carbonara">
@@ -3894,10 +4210,10 @@ nav {
 			
 			<div class="about-image-wrapper">
 				<div class="about-main-image">
-					<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=700&q=80" alt="Interior del restaurante">
+					<img src="https://i.postimg.cc/nLDHN5jj/IMG-20251112-WA0038.jpg" alt="Interior del restaurante">
 				</div>
 				<div class="about-chef-image">
-					<img src="https://images.unsplash.com/photo-1583394290230-e2d0059b6798?auto=format&fit=crop&w=200&q=80" alt="Chef sonriendo">
+					<img src="https://i.postimg.cc/pTs1CVW2/IMG-20251112-WA0033.jpg" alt="Chef sonriendo">
 				</div>
 				<div class="about-experience-box">
 					<strong>30+</strong>
@@ -3917,8 +4233,10 @@ nav {
 				</ul>
 				
 				<div class="about-buttons">
-                  <a href="https://wa.me/593983248585" class="btn btn-secondary">Pedir Ahora</a>					<a href="#" class="btn-about-secondary nav-link" data-page="nosotros">Leer Más</a>
-				</div>
+    <a href="https://wa.me/593983248585" class="btn-about-secondary">Pedir Ahora</a>
+    
+    <a href="#" class="btn-about-secondary nav-link" data-page="nosotros">Leer Más</a>
+</div>
 			</div>
 			
 		</div>
@@ -3944,65 +4262,132 @@ nav {
 	
 </section>
 
-        <!-- Gallery Section -->
-<section class="gallery-section">
-            <div class="container">
-                <h2 class="section-title">Galería de Sabores</h2>
-                
-                                <div class="swiper gallery-carousel">
-                    <div class="swiper-wrapper">
-                        
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 1">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 2">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1595708684082-a173bb3a06c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 3">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 4">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 5">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1604382355076-af4b0eb60143?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 6">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 7">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1590947132387-155cc02f3212?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 8">
-                        </div>
-                                             <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 9">
-                        </div>
-                                                <div class="swiper-slide">
-                            <img src="https://images.unsplash.com/photo-1552539618-7eec9b4d1796?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pizza 10">
-                        </div>
-                    
-                    </div>
-<!-- in -->                  
-                                        <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-        </section>
 
         <!-- Testimonial Preview -->
-        <section class="testimonial-preview">
-            <div class="container">
-                <h2 class="section-title">Opiniones de Clientes</h2>
-                <div class="testimonials-slider">
-                    <div class="testimonial">
-                        <p class="testimonial-text">La mejor pizza que he probado en mi vida. La masa es perfecta, crujiente por fuera y esponjosa por dentro. Los ingredientes son frescos y de calidad. Definitivamente volveré.</p>
-                        <p class="testimonial-author">- Carlos Mendoza</p>
+<section class="google-reviews-section">
+    <div class="container" style="text-align: center;">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+
+        <div class="swiper reviews-carousel-container">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★★</div>
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" class="g-avatar" alt="Marlene">
+                            <div class="g-info"><h4>Marlene España</h4><span>hace 6 meses</span></div>
+                        </div>
+                        <p class="g-text">Buena relación precio-calidad.</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
                     </div>
                 </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★★</div>
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="g-avatar" alt="Galo">
+                            <div class="g-info"><h4>Galo I. V.C.</h4><span>hace 1 año</span></div>
+                        </div>
+                        <p class="g-text">Exelente servicio, recomendado</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★★</div>
+                        <div class="g-header">
+                            <div class="g-avatar-placeholder" style="background:#4CAF50;">F</div>
+                            <div class="g-info"><h4>Freddy Peña</h4><span>hace 1 año</span></div>
+                        </div>
+                        <p class="g-text">Precios accesibles y excelente atención</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★☆</div>
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="g-avatar" alt="Mercedes">
+                            <div class="g-info"><h4>Mercedes J. Salazar.</h4><span>hace 1 año</span></div>
+                        </div>
+                        <p class="g-text">Deliciosas 🍕🍕🍕 para diferentes paladares, ambiente tranquilo y precios módicos, quedamos muy satisfechos.</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★★</div>
+                        <div class="g-header">
+                            <div class="g-avatar-placeholder" style="background:#2196F3;">S</div>
+                            <div class="g-info"><h4>Soccer Style Ecuador</h4><span>hace 1 año</span></div>
+                        </div>
+                        <p class="g-text">La mejor pizza 🍕 en Riobamba en relación Calidad vs precio . No tiene competencia</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★★</div>
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/men/85.jpg" class="g-avatar" alt="Luisito">
+                            <div class="g-info"><h4>Luisito Presenta</h4><span>hace 2 años</span></div>
+                        </div>
+                        <p class="g-text">Muy rica pizza</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★★</div>
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" class="g-avatar" alt="Melanie">
+                            <div class="g-info"><h4>Melanie Alulema</h4><span>hace 2 años</span></div>
+                        </div>
+                        <p class="g-text">La atención es muy buena, la pizza es muy rica, muy recomendado</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★☆</div>
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/men/11.jpg" class="g-avatar" alt="Cristian">
+                            <div class="g-info"><h4>Cristian Andres Pino</h4><span>hace 2 años</span></div>
+                        </div>
+                        <p class="g-text">Buena pizza relación precio</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="g-card">
+                        <div class="g-stars">★★★★★</div>
+                        <div class="g-header">
+                            <img src="https://randomuser.me/api/portraits/women/22.jpg" class="g-avatar" alt="Maria">
+                            <div class="g-info"><h4>Maria Eugenia</h4><span>hace 2 años</span></div>
+                        </div>
+                        <p class="g-text">Agradable!</p>
+                        <a href="https://www.google.com/maps/place/Michelinos+Pizzer%C3%ADa/@-1.6609282,-78.6768152,17z/data=!3m1!5s0x91d307eb63eab9df:0x6ac3171856afcd41!4m8!3m7!1s0x91d307efc6c62845:0xa5521afe5639a8d2!8m2!3d-1.6609282!4d-78.6742403!9m1!1b1!16s%2Fg%2F11c5rtr6bg?hl=en&entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-google-small"><span style="color:#4285F4; font-weight:bold;">G</span> Ver en Google</a>
+                    </div>
+                </div>
+
             </div>
-        </section>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <a href="#" class="btn-reviews-main nav-link" data-page="resenas">
+            Ver todas las reseñas
+        </a>
+    </div>
+</section>
     </section>
 
     <!-- Página Nosotros - CON BANNER NUEVO -->
@@ -4044,7 +4429,7 @@ nav {
             </div>
 
             <div class="float-card-image">
-                <img src="https://images.unsplash.com/photo-1583394290230-e2d0059b6798?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Chef Pizzería">
+                <img src="https://i.postimg.cc/FsXJBcTJ/unnamed.jpg" alt="Chef Pizzería">
                 
                 <div class="image-overlay-text">
                     <h3>AMOR POR</h3>
@@ -4599,12 +4984,13 @@ const productsData = [
         specs: { "Masa": "Italiana", "Cocción": "Horno de Leña" },
         category: "clasicas"
     },
-    {
+{
         id: 2,
         name: "Pizza Variada",
         price: "$10",
-        image: "https://images.unsplash.com/photo-1627626775846-7f5c42a2e73e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-        images: ["https://images.unsplash.com/photo-1627626775846-7f5c42a2e73e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"],
+        /* HE AGREGADO ESTAS IMÁGENES NUEVAS: */
+        image: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
+        images: ["https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"],
         description: "Combinación perfecta de carnes y vegetales.",
         features: ["Carne", "Pollo", "Chorizo", "Champiñones", "Pimientos"],
         specs: { "Masa": "Americana", "Picante": "Leve" },
@@ -5035,13 +5421,6 @@ function updateCart() {
         });
 
         // 4. Inicializar Swipers (Carruseles)
-        new Swiper('.gallery-carousel', {
-            loop: true,
-            slidesPerView: 1,
-            spaceBetween: 20,
-            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-            breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }
-        });
 
         new Swiper('.team-timeline-carousel', {
             slidesPerView: 1,
@@ -5354,5 +5733,45 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
     </script>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Inicialización del Carrusel de Reseñas (Google)
+    var swiperReviews = new Swiper(".reviews-carousel-container", {
+        // Configuración MÓVIL (1 tarjeta)
+        slidesPerView: 1,
+        spaceBetween: 20,
+        loop: true,
+        
+        // ESTO ES LO QUE ARREGLA EL ERROR DE PC:
+        observer: true, 
+        observeParents: true,
+        
+        autoplay: {
+            delay: 4000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints: {
+            // Configuración TABLET (2 tarjetas)
+            700: {
+                slidesPerView: 2,
+                spaceBetween: 25,
+            },
+            // Configuración PC / LAPTOP (3 tarjetas - LO QUE PEDISTE)
+            1024: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+        },
+    });
+
+});
+</script>
 </body>
 </html>
