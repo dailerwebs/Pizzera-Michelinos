@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Michelinos Pizzería - Pizza Artesanal de Calidad</title>
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍕</text></svg>">
+    
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/FzHnR0HV/Diseño_sin_título_(2).png">
+    
+    <link rel="apple-touch-icon" href="https://i.postimg.cc/FzHnR0HV/Diseño_sin_título_(2).png">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -3765,6 +3768,48 @@ nav {
     background: linear-gradient(135deg, #128C7E, #25D366);
 }
 
+/* ========================================= */
+/* ARREGLO BOTONES DE WHATSAPP (CONTACTO)    */
+/* ========================================= */
+
+.contact-form .btn-primary, 
+.whatsapp-cta .btn-primary {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: white;
+    border: none;
+    
+    /* 1. TAMAÑO: Un poco más compactos */
+    padding: 0.8rem 2rem;   /* Menos relleno vertical */
+    font-size: 1rem;        /* Letra tamaño estándar */
+    font-weight: 700;
+    border-radius: 50px;
+    
+    /* 2. ANCHO Y CENTRADO */
+    width: 100%;            /* Se adapta al móvil... */
+    max-width: 280px;       /* ...pero nunca pasa de este ancho (esto los hace más pequeños visualmente) */
+    margin: 1.5rem auto 0 auto; /* El 'auto' a los lados es lo que los CENTRA perfectamente */
+    
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+    transition: all 0.3s ease;
+    font-family: 'Lato', sans-serif;
+}
+
+/* Efecto Hover (al pasar el mouse) */
+.contact-form .btn-primary:hover, 
+.whatsapp-cta .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    background: linear-gradient(135deg, #128C7E, #25D366);
+}
+
     </style>
 </head>
 <body>
@@ -3785,8 +3830,8 @@ nav {
                     <li><a href="#" class="nav-link" data-page="inicio">Inicio</a></li>
                     <li><a href="#" class="nav-link" data-page="nosotros">Nosotros</a></li>
                     <li><a href="#" class="nav-link" data-page="menu">Menú</a></li>
-                    <li><a href="#" class="nav-link" data-page="reseñas">Reseñas</a></li>
-                    <li><a href="#" class="nav-link" data-page="blog">Blog</a></li>
+                    <li><a href="#" class="nav-link" data-page="resenas">Reseñas</a></li>
+
                     <li><a href="#" class="nav-link" data-page="contacto">Contacto</a></li>
                     <li>
                         <div class="cart-icon" id="cartIcon">
@@ -3815,8 +3860,7 @@ nav {
 			
             <div class="hero-buttons">
 				<a href="#" class="btn btn-primary nav-link" data-page="menu">Ver Menú</a>
-				<a href="https://wa.me/593987654321" class="btn btn-secondary">Pedir Ahora</a>
-			</div>
+                <a href="https://wa.me/593983248585" class="btn btn-secondary">Pedir Ahora</a>			</div>
 
 		</div>
 		
@@ -3873,8 +3917,7 @@ nav {
 				</ul>
 				
 				<div class="about-buttons">
-					<a href="https://wa.me/593987654321" class="btn-about-primary">Pedir Ahora</a>
-					<a href="#" class="btn-about-secondary nav-link" data-page="nosotros">Leer Más</a>
+                  <a href="https://wa.me/593983248585" class="btn btn-secondary">Pedir Ahora</a>					<a href="#" class="btn-about-secondary nav-link" data-page="nosotros">Leer Más</a>
 				</div>
 			</div>
 			
@@ -3991,8 +4034,13 @@ nav {
 
                 <div class="social-links" style="margin-top: 2rem;">
                     <a href="#" style="color: var(--black);"><i class="fab fa-instagram"></i></a>
-                    <a href="#" style="color: var(--black);"><i class="fab fa-facebook-f"></i></a>
-                </div>
+                    <a href="https://www.facebook.com/pizzapizzammmm/?locale=es_LA" target="_blank" style="color: var(--black);">
+                    <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@michelinos.pizzer?is_from_webapp=1&sender_device=pc" target="_blank" style="color: var(--black);">
+                    <i class="fab fa-tiktok"></i>
+                    </a>
+</div>
             </div>
 
             <div class="float-card-image">
@@ -4178,35 +4226,25 @@ nav {
     </section>
 
     <!-- Página Reseñas -->
-<section id="reseñas" class="page">
-    <div class="page-banner">
-        <div class="container">
-            <h1>Reseñas de Nuestros Clientes</h1>
-            <p>Lo que nuestros clientes dicen sobre nosotros</p>
-        </div>
-    </div>
-
-    <section class="testimonial-preview" style="padding: 5rem 0;">
-        <div class="container">
-            <h2 class="section-title">Opiniones de Clientes</h2>
-            
-            <!-- Widget de reseñas de Google (placeholder) -->
-            <div style="text-align: center; margin: 3rem 0; min-height: 400px;">
-                <div id="ivy-reviews-widget"></div>
-                <script type="text/javascript" src="https://web-widgets.com/reviews/dailerwebsgithub.ioPizzera-Michelinos/mtc2mzu2oty0mdcynq.js" async></script>
-            </div>
-
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <p class="testimonial-text">"La mejor pizza que he probado. Ingredientes frescos y masa deliciosa."</p>
-                    <p class="testimonial-author">- Carlos Mendoza</p>
-                </div>
-                <div class="testimonial">
-                    <p class="testimonial-text">"El servicio es excelente y las pizzas llegan siempre calientes y deliciosas."</p>
-                    <p class="testimonial-author">- Ana López</p>
-                </div>
+<section id="resenas" class="page">
+        <div class="page-banner">
+            <div class="container">
+                <h1>Reseñas de Nuestros Clientes</h1>
+                <p>Lo que nuestros clientes dicen sobre nosotros</p>
             </div>
         </div>
+
+        <section class="testimonial-preview" style="padding: 5rem 0;">
+            <div class="container">
+                <h2 class="section-title">Opiniones de Clientes</h2>
+                
+                <div style="margin-top: 3rem; min-height: 400px;">
+                    <div id="reviews-widget-853"></div>
+                    <script src="https://app.reviewconnect.me/embed/svBA7qPwHCXkpyG8vbMJKgtCyEzgTGYV/widget.js" async></script>
+                </div>
+
+            </div>
+        </section>
     </section>
 </section>
 
@@ -4270,15 +4308,22 @@ nav {
                     
                     <div>
                         <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.781575734575!2d-78.5123889250111!3d-0.2204352353520299!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a1059ce2b9d%3A0x71a0a2b0e8d0d7d1!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2sus!4v1647892345678!5m2!1ses!2sus" allowfullscreen="" loading="lazy"></iframe>
-                        </div>
+    <iframe 
+        src="https://maps.google.com/maps?q=Av.%2011%20de%20Noviembre%20y%20Jos%C3%A9%20de%20Villamil%2C%20Riobamba&t=&z=17&ie=UTF8&iwloc=&output=embed" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
                         
                         <div class="contact-info" style="margin-top: 2rem;">
-                            <h3>Información de contacto</h3>
-                            <p><i class="fas fa-map-marker-alt"></i> Av. de la Pizza 123, Quito, Ecuador</p>
-                            <p><i class="fas fa-phone"></i> +593 9 8765 4321</p>
-                            <p><i class="fas fa-envelope"></i> contacto@pizzeriaespejo.com</p>
-                            <p><i class="fas fa-clock"></i> Lunes a Domingo: 11:00 - 23:00</p>
+                           <h3>Información de contacto</h3>
+                           <p><i class="fas fa-map-marker-alt"></i> Av. 11 de Noviembre y José de Villamil, Riobamba, Ecuador</p>                           <p><i class="fas fa-phone"></i> 098 324 8585</p>
+                           <p><i class="fas fa-envelope"></i> contacto@pizzeriamichelinos.com</p> 
+                           <p><i class="fas fa-clock"></i> Lunes a Domingo de 17:00 a 22:00</p>
                         </div>
                     </div>
                 </div>
@@ -4286,9 +4331,9 @@ nav {
                 <div class="whatsapp-cta">
                     <h3>¿Prefieres pedir directamente?</h3>
                     <p>Contáctanos por WhatsApp para un pedido rápido y atención personalizada.</p>
-                    <a href="https://wa.me/593987654321" class="btn btn-primary" style="margin-top: 1rem;">
-                        <i class="fab fa-whatsapp"></i> Abrir WhatsApp
-                    </a>
+                   <a href="https://wa.me/593983248585" class="btn btn-primary" style="margin-top: 1rem;">
+                      <i class="fab fa-whatsapp"></i> Abrir WhatsApp
+                      </a>
                     
                 </div>
             </div>
@@ -4306,36 +4351,36 @@ nav {
                         <li><a href="#" class="nav-link" data-page="menu">Menú</a></li>
                         <li><a href="#" class="nav-link" data-page="nosotros">Nosotros</a></li>
                         <li><a href="#" class="nav-link" data-page="contacto">Contacto</a></li>
+                        <li><a href="#" class="nav-link" data-page="resenas">Reseñas</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section contact-info">
-                    <h3>Contacto</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Av. de la Pizza 123, Quito, Ecuador</p>
-                    <p><i class="fas fa-phone"></i> +593 9 8765 4321</p>
-                    <p><i class="fas fa-envelope"></i> contacto@pizzeriaespejo.com</p>
+                      <h3>Contacto</h3>
+                      <p><i class="fas fa-map-marker-alt"></i> Av. 11 de Noviembre y José de Villamil, Riobamba, Ecuador</p>                      <p><i class="fas fa-phone"></i> 098 324 8585</p>
+                      <p><i class="fas fa-envelope"></i> contacto@pizzeriamichelinos.com</p>
                 </div>
                 
-                <div class="footer-section">
-                    <h3>Síguenos</h3>
-                    <div class="social-links">
-                        <a href="https://instagram.com/pizzeriaespejo" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://facebook.com/pizzeriaespejo" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://tiktok.com/@pizzeriaespejo" target="_blank"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://wa.me/593987654321" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
+               <div class="social-links">
+                      <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+    
+                      <a href="https://www.facebook.com/pizzapizzammmm/?locale=es_LA" target="_blank">
+                      <i class="fab fa-facebook-f"></i>
+                     </a>
+                     <a href="https://www.tiktok.com/@michelinos.pizzer?is_from_webapp=1&sender_device=pc" target="_blank">
+                     <i class="fab fa-tiktok"></i>
+                     </a>
+                   <a href="https://wa.me/593983248585" target="_blank"><i class="fab fa-whatsapp"></i></a>
+               </div>
             </div>
-            
             <div class="copyright">
-                <p>© 2025 Pizzería Espejo. Todos los derechos reservados.</p>
-            </div>
+              <p>© 2025 Pizzería Michelinos | Es mas que comer una pizza - es vivir una nueva experiencia.</p>
+              </div>
         </div>
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/593987654321?text=Hola%20quiero%20hacer%20un%20pedido%20de%20pizza" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+        <a href="https://wa.me/593983248585?text=Hola%20quiero%20hacer%20un%20pedido%20de%20pizza" class="whatsapp-float" target="_blank">        <i class="fab fa-whatsapp"></i>
         <span class="whatsapp-tooltip">¡Pide por WhatsApp!</span>
     </a>
     <!--Logo Flotante-->
@@ -4435,7 +4480,7 @@ nav {
             </div>
         </div>
 
-<div class="size-options">
+<!-- <div class="size-options">
     <div class="size-btn" onclick="selectSize('Pequeña', 5, this)">
         <span>Pequeña</span>
         <small>$5</small>
@@ -4447,7 +4492,7 @@ nav {
     <div class="size-btn" onclick="selectSize('Familiar', 15, this)">
         <span>Familiar</span>
         <small>$15</small>
-    </div>
+    </div> -->
 </div>
 
     </div>
@@ -4712,8 +4757,7 @@ const productsData = [
             // Actualizar el enlace de WhatsApp con los detalles
             if(currentProduct) {
                 const text = `Hola, quiero pedir: ${currentQuantity} pizza(s) ${currentProduct.name} tamaño ${currentSize}. Total: $${total}`;
-                document.getElementById('buyWhatsApp').href = `https://wa.me/593987654321?text=${encodeURIComponent(text)}`;
-            }
+                document.getElementById('buyWhatsApp').href = `https://wa.me/593983248585?text=${encodeURIComponent(text)}`;            }
         }
 
 // Abrir el Modal
@@ -4906,77 +4950,156 @@ function updateCart() {
         document.getElementById('cartIcon').onclick = () => document.getElementById('cartModal').classList.add('active');
         document.getElementById('cartClose').onclick = () => document.getElementById('cartModal').classList.remove('active');
 
-        // =============================================
-        // 4. LÓGICA DEL SITIO (Nav, Scroll, Quiz)
-        // =============================================
+// =============================================
+    // 4. LÓGICA DEL SITIO (Navegación Persistente)
+    // =============================================
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Init Productos y Blog
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // --- A. FUNCIÓN PARA CAMBIAR DE PÁGINA ---
+        function switchPage(pageId) {
+            const targetSection = document.getElementById(pageId);
+            
+            // Si la sección existe, hacemos el cambio
+            if (targetSection) {
+                // 1. Ocultar todas las páginas
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                
+                // 2. Mostrar la página seleccionada
+                targetSection.classList.add('active');
+                
+                // 3. Scroll al inicio suavemente
+                window.scrollTo({ top: 0, behavior: 'smooth' });
 
-            renderProducts(productsData.slice(0,5), document.getElementById('featuredProducts'));
-            renderProducts(productsData, document.getElementById('orderGridView'), false);
-            renderBlogArticles();
+                // 4. Cerrar el menú móvil si está abierto
+                const nav = document.querySelector('nav');
+                if (nav) nav.classList.remove('active');
+            }
+        }
 
-            // Header Scroll
-            window.addEventListener('scroll', function() {
-                const header = document.querySelector('header');
-                if (window.scrollY > 50) header.classList.add('scrolled');
-                else header.classList.remove('scrolled');
+        // --- B. LEER LA URL AL CARGAR (ESTO EVITA EL REINICIO) ---
+        // Obtenemos el hash (ej: #menu) sin el símbolo #
+        const currentHash = window.location.hash.substring(1);
+        
+        if (currentHash) {
+            // Si hay un hash (ej: el usuario recargó en reseñas), vamos ahí
+            switchPage(currentHash);
+        } else {
+            // Si no hay hash, vamos al inicio por defecto
+            switchPage('inicio');
+        }
+
+        // --- C. EVENTOS DE NAVEGACIÓN (CLICKS) ---
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Evita el salto brusco predeterminado
+                const targetId = this.dataset.page;
+                
+                // Cambiamos la página visualmente
+                switchPage(targetId);
+                
+                // ACTUALIZAMOS LA URL (Para que si recarga, se quede aquí)
+                // history.pushState cambia la URL sin recargar la página
+                history.pushState(null, null, `#${targetId}`);
             });
-
-            // Mobile Menu
-            document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-                document.querySelector('nav').classList.toggle('active');
-            });
-
-            // Navegación Páginas
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = this.dataset.page;
-                    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                    document.getElementById(target).classList.add('active');
-                    document.querySelector('nav').classList.remove('active');
-                    window.scrollTo(0,0);
-                });
-            });
-
-            // Swiper Galería
-            new Swiper('.gallery-carousel', {
-                loop: true,
-                slidesPerView: 1,
-                spaceBetween: 20,
-                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
-                breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }
-            });
-
-            // ======================================================
-            // 5. CORRECCIÓN CARRUSEL EQUIPO Y MODAL (LO IMPORTANTE)
-            // ======================================================
-
-            // Inicialización correcta del Swiper Equipo
-            var teamSwiper = new Swiper('.team-timeline-carousel', {
-                slidesPerView: 1,
-                spaceBetween: 30,
-                loop: true,
-                // Autoplay para que se mueva solo
-                autoplay: {
-                    delay: 3000,
-                    disableOnInteraction: false,
-                },
-                // Flechas corregidas
-                navigation: {
-                    nextEl: '.team-nav-next',
-                    prevEl: '.team-nav-prev',
-                },
-                breakpoints: {
-                    640: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 },
-                }
-            });
-
         });
+
+        // --- D. MANEJAR EL BOTÓN "ATRÁS" DEL NAVEGADOR ---
+        // Esto permite que si el usuario da al botón "Atrás" del celular, cambie de sección en vez de salir
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash.substring(1);
+            if(hash) switchPage(hash);
+            else switchPage('inicio');
+        });
+
+        // --- E. RESTO DE TU CÓDIGO (Init productos, Scroll Header, etc) ---
+        
+        // 1. Renderizar Productos
+        renderProducts(productsData.slice(0,5), document.getElementById('featuredProducts'));
+        renderProducts(productsData, document.getElementById('orderGridView'), false);
+
+        // 2. Menú Móvil
+        const menuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        if(menuBtn && nav) {
+            menuBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        }
+
+        // 3. Scroll Header (Efecto vidrio)
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        });
+
+        // 4. Inicializar Swipers (Carruseles)
+        new Swiper('.gallery-carousel', {
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+            breakpoints: { 768: { slidesPerView: 2 }, 992: { slidesPerView: 3 } }
+        });
+
+        new Swiper('.team-timeline-carousel', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: { delay: 3000, disableOnInteraction: false },
+            navigation: { nextEl: '.team-nav-next', prevEl: '.team-nav-prev' },
+            breakpoints: { 640: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        });
+
+        // 5. Botones del Modal y Carrito (Reconexión de eventos)
+        document.getElementById('modalClose').onclick = () => productModal.classList.remove('active');
+        
+        document.getElementById('increaseQuantity').onclick = () => {
+            currentQuantity++;
+            document.getElementById('quantityDisplay').textContent = currentQuantity;
+            updatePriceDisplay();
+        };
+        
+        document.getElementById('decreaseQuantity').onclick = () => {
+            if(currentQuantity > 1) {
+                currentQuantity--;
+                document.getElementById('quantityDisplay').textContent = currentQuantity;
+                updatePriceDisplay();
+            }
+        };
+
+        document.getElementById('addToCart').onclick = () => {
+            const itemToAdd = {
+                id: currentProduct.id, 
+                uniqueId: Date.now(),
+                name: currentProduct.name,
+                image: currentProduct.images[0],
+                size: currentSize,
+                price: currentPrice,
+                quantity: currentQuantity
+            };
+            cart.push(itemToAdd);
+            updateCart();
+            productModal.classList.remove('active');
+            alert(`¡Agregado! ${itemToAdd.quantity} ${itemToAdd.name}`);
+        };
+
+        document.getElementById('cartIcon').onclick = () => document.getElementById('cartModal').classList.add('active');
+        document.getElementById('cartClose').onclick = () => document.getElementById('cartModal').classList.remove('active');
+
+        // 6. Cierre de Modales al hacer click fuera
+        window.addEventListener('click', function(e) {
+            const teamModal = document.getElementById('teamMemberModal');
+            if (e.target == teamModal) closeTeamModal();
+            
+            const prodModal = document.getElementById('productModal');
+            if (e.target == prodModal) prodModal.classList.remove('active');
+
+            const cModal = document.getElementById('cartModal');
+            if (e.target == cModal) cModal.classList.remove('active');
+        });
+    });
 
         // LÓGICA MODAL EQUIPO (FUERA DEL DOMCONTENTLOADED PARA SER ACCESIBLE)
         const teamMembersData = {
@@ -5089,8 +5212,7 @@ function updateCart() {
         if(currentProduct) {
             // Generar mensaje para WhatsApp con detalle de tamaño
             const text = `Hola Michelinos, quiero pedir: ${currentQuantity} pizza(s) ${currentProduct.name} tamaño ${currentSize}. Total: $${total}`;
-            document.getElementById('buyWhatsApp').href = `https://wa.me/593987654321?text=${encodeURIComponent(text)}`;
-        }
+            document.getElementById('checkoutWhatsApp').href = `https://wa.me/593983248585?text=${encodeURIComponent(whatsappMsg)}`;        }
     }
 
     // 3. Función para ABRIR el modal con los datos de la pizza
